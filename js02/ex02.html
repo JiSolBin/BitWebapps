@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var arr1 = [];
+        var arr2 = new Array();
+        console.log(typeof arr1, typeof arr2); // object object
+        console.log(Array.isArray(arr1)); // true
+        console.log(arr1.length); // 0
+        
+        var arr3 = [1,3,5,7,9];
+        var arr4 = [2,4,6,8];
+        console.log(arr3.concat(arr4));
+
+        console.log('---------for each---------');
+
+        // 반복문을 콜백으로 지원함
+        // 첫 번째 인자 : element, 두 번째 : index, 세 번째 : 호출한 객체(arr3)
+        var callback1 = function(ele, idx){
+            console.log(ele, idx);
+            // 여기서 this = window
+            // foreach에서 this는 arr3, 여기서는 window
+        }
+
+        // 콜백함수를 인자로 전달하여 forEach가 실행하도록 함
+        arr3.forEach(callback1);
+
+        console.log('----------------------------');
+
+        var arr5 = [5,21,6,8,1,5];
+        // 숫자 정렬 아니고 문자 정렬임
+        // arr5.sort();
+        // console .log(arr5.toString());
+        // arr5.reverse();
+        // console .log(arr5.toString());
+
+        console.log(arr5);
+        arr5.sort(function(a,b){
+            console.log(a,b);
+            return a-b; // 오름차순
+            //return b-a; // 내림차순
+
+            //return -1 // reverse
+            //return 1 // 원래 순서
+        });
+        console.log(arr5);
+
+        console.log('----------------------------');
+
+        var arr6 = [];
+
+        arr6.push('첫번째');
+        arr6.push('두번째');
+        arr6.push('세번째');
+        arr6.push('네번째');
+        arr6.push('다섯번째');
+
+        // 스택의 구조
+        console.log(arr6.pop());
+        // 큐의 구조
+        console.log(arr6.shift());
+        console.log(arr6.toString());
+
+        // 데이터를 앞에 넣음
+        // shift로 뽑아내면 스택느낌, pop으로 뽑아내면 큐 느낌
+        // -> LinkedList랑 비슷하다고? 왜? Deque아님?
+        arr6.unshift('여섯번째');
+        arr6.unshift('일곱번째');
+
+        console.log(arr6.toString());
+
+        console.log('----------------------------');
+
+        var arr7 = [1,3,5,7,9];
+        while(arr7.length){
+            console.log(arr7.shift());
+        }
+
+        console.log('----------------------------');
+
+        var arr8 = [1,3,5,6,7];
+        for(idx in arr8){
+            console.log(idx, arr8[idx]);
+        }
+
+        for (ele of arr8) {
+            console.log(ele);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

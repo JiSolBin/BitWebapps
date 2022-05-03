@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            margin: 0px auto;
+        }
+
+        ul{
+            list-style: none;
+            padding:0px;
+            width: 3600px;
+        }
+
+        ul>li{
+            float: left;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <!-- <li><img src="imgs/index.png"></li>
+            <li><img src="imgs/index2.png"></li>
+            <li><img src="imgs/index3.png"></li> -->
+        </ul>
+    </div>
+
+    <script>
+        var div = document.firstElementChild.lastElementChild.firstElementChild;
+        var ul = div.firstElementChild;
+        var arr = ['imgs/index.png', 'imgs/index2.png', 'imgs/index3.png'];
+
+        for(var i=0; i<arr.length; i++){
+            var li = document.createElement('li');
+            var img = document.createElement('img');
+            img.src = arr[i];
+            li.appendChild(img);
+            ul.appendChild(li);
+        }
+
+        setInterval(function (){
+            ul.appendChild(ul.firstElementChild);
+        }, 1000);
+    </script>
+</body>
+</html>

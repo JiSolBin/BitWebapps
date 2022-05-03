@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // 자바스크립트는 클래스가 없지만 function 형태로 만들 수 있음
+        // function = 클래스 역할 (이럴땐 첫 글자를 대문자로)
+        function Func1(){
+            // this = window 
+            this.num1 = 1111;
+            this.func = function(){
+                console.log('메서드');
+            };
+            console.log('실행', this);
+        }
+
+        //Func1(); // this : window
+        console.log(window.num1);
+
+        var obj1 = new Func1(); // this : func1
+        console.log(obj1.num1);
+        obj1.func();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

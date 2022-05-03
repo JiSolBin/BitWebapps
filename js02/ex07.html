@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var a = '1111';
+        console.log(window.parseInt(a));
+        window.console.log('로그메시지');
+        window.console.error('에러메시지');
+
+        //이거 안닫으면 이 밑에 코드 실행 안함
+        // var result1 = window.alert('창을 띄움.. 이제 쓰지말라하심');
+        // var result2 = window.confirm('삭제?');
+        // var result3 = window.prompt('입력', 'aaa');
+        // console.log('after', result1, result2, result3);
+
+        var num = 0;
+        var callback1 = function(){
+            num++;
+            console.log('num:',num);
+        }
+
+        // 첫번째 인자로 콜백 함수, 두번째 인자로 시간을 받음
+        // 아래는 1초마다 반복하는 코드
+        // window.setInterval(callback1, 1000);
+        // 아래는 2초 뒤 실행하는 코드
+        // 아래 코드를 callback1 함수 안에도 넣으면 재귀마냥 반복 됨
+        // 되도록이면 setInterval 보다 이거 사용
+        // window.setTimeout(callback1, 2000);
+
+        // setTimeout 사용시 조심할 점
+        // 시간이 0임에도 불구하고 after부터 나옴
+        // 비동기 함수의 호출이기 때문에 실행이 완료될 때 까지 기다리지 않고
+        // 다음 라인으로 넘어가버림
+        console.log('before');
+        window.setTimeout(callback1, 0);
+        console.log('after');
+
+        console.log('-----------------------------');
+
+        // 이렇게 하면 5번 돌리고 clear 돼서 끝
+        var callback2 = function(){
+            num++;
+            console.log('num:',num);
+            if(num==5){
+                window.clearInterval(inter1);
+            }
+        }
+        var inter1 = window.setInterval(callback2,1000);
+
+        // 위 코드랑 같음
+        var callback2 = function(){
+            num++;
+            console.log('num:',num);
+            inter2 = window.setTimeout(callback2,1000);
+            if(num==5)
+                window.clearTimeout(inter2);
+        }
+        var inter2 = window.setTimeout(callback2,1000);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

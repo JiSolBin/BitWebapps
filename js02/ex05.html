@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function func1(a,b,c){
+            console.log(a,b,c);
+        }
+        func1(1,2);
+
+        function func2(a,b,c){
+            console.log(a,b,c);
+        }
+        func2();
+
+        function func3(a,b,c){
+            console.log(a,b,c);
+        }
+        func3(1,2,3,4);
+
+        function func4(){
+            // 아무것도 전달 못받으면 length=0
+            var arr = arguments;
+            console.log(arr[0], arr[1]);
+        }
+        func4(5,6);
+
+        console.log('----------12---------');
+
+        var key1 = 'no';
+        var obj1 = {
+            'key1' : 'val1',
+            'func' : function(a, b){
+                console.log(key1, this.key1, this, a, b);
+            }
+        };
+        
+        var obj2 = {
+            'key1' : 'edit2'
+        };
+
+        // 매개변수를 요렇게
+        obj1.func.call(obj2, 'addddd', 'adddddddddddd');
+
+        console.log('----------34---------');
+
+        var obj3 = {
+            'func' : function(a, b){
+                console.log(key1, this.key1, this, a, b);
+            }
+        };
+
+        var obj4 = {
+            'key1' : 'edit4'
+        };
+
+        // 매개변수를 배열로
+        obj3.func.apply(obj4, ['add1', 'add2']);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

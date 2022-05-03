@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <img src="imgs/index.png">
+    <button onClick="before()"></button>
+    <button onclick="after()">></button>
+
+    <script type="text/javascript">
+        var s=document.firstElementChild.lastElementChild.firstElementChild.src;
+      
+        function after(){
+            if(s.includes("index.png"))
+                s="imgs/index2.png";
+            else if(s.includes("index2.png"))
+                s="imgs/index3.png";
+            else if(s.includes("index3.png"))
+                s="imgs/index.png";
+            
+            document.firstElementChild.lastElementChild.firstElementChild.src=s;
+        }
+
+        function before(){
+            if(s.includes("index.png"))
+                s="imgs/index3.png";
+            else if(s.includes("index2.png"))
+                s="imgs/index.png";
+            else if(s.includes("index3.png"))
+                s="imgs/index2.png";
+            
+            document.firstElementChild.lastElementChild.firstElementChild.src=s;
+        }
+    </script>
+</body>
+</html>

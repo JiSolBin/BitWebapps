@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var a = 1234;
+        var b = new Number(1234);
+        var c = new Number(1234);
+
+        // === : 객체 + 값 비교
+        console.log(a==b, a===b); // true false
+        // false false -> 객체가 달라서 false, 자바스크립트의 문제점
+        console.log(b==c, b===c);
+
+        
+
+        console.log('----------------------------');
+
+        var d = "abc";
+        var e = 'abc';
+        var f = `abc`;
+        var g = new String();
+        console.log(d,e,f,"->"+g+"<-"); // g는 빈 문자열
+        var h = new String('abc');
+        var k = new String('abc');
+        console.log(d==e, d===e); // true true
+        console.log(d==h, d===h); // true false
+        console.log(h==k, h===k); // false false
+        console.log(d.length); // 3
+
+        console.log('----------------------------');
+
+        console.log("4"+2, "4"-2); // 42 2
+        console.log(parseInt("100원"), parseFloat('1000원')); // 100 1000
+        // 1 -> 숫자가 아닌 문자열이 나올 때 까지만, 처음부터 숫자가 아니면 NaN
+        console.log(parseInt('1,000원'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
