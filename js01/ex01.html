@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 아래 코드는 어디에 위치해도 돌아감 -->
+    <!-- 아래에 선언한 변수 : undefined -->
+    <!-- 아래 다른 스크립트에서 사용한 변수 : 에러 -->
+    <script>
+        var a=1234;
+        document.write("<h1>자바스크립트로 작성 a: "+a+"</h1>");
+        document.write("<h1>자바스크립트로 작성 b: "+b+"</h1>");
+        var b=4321;
+        document.write("<h1>자바스크립트로 작성 b: "+b+"</h1>");
+    </script>
+
+    <!-- 외부에서 가져온 js 파일 -->
+    <!-- 여기서 코드 작성하면 안됨 -->
+    <script type="text/javascript" src="js/test01.js"></script>
+
+    <script>
+        document.write("추가");
+        console.log("콘솔 로그 출력")
+    </script>
+</head>
+<body>
+    <h1>html로 작성</h1>
+</body>
+</html>

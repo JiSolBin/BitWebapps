@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var b = 0;
+        switch(b){
+            case '1': // 타입이 일치하지 않아도 오류 나지 않음
+                console.log('1입니다');
+                break;
+            case b=0: // 조건이 들어가도 됨
+                console.log('0임');
+                break;
+            case 0-1: // 연산이 들어가도 됨
+                console.log('-1');
+                break;
+            default:
+                console.log('몰라');
+        }
+
+        console.log('-----------------');
+        
+        for(var i=0; i<5; ++i){
+            console.log('for i=' + i);
+        }
+
+        // 이미 for문을 통해 i가 5가 되었기 대문에 while은 안 돌아감
+        while(i<5){
+            console.log('while i=' + i);
+            ++i;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

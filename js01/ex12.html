@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var obj1={
+            'key1' : 'val1',
+            'key2' : 'val2'
+        };
+        console.log(typeof obj1, obj1);
+        console.log(obj1['key1'], obj1['key2']);
+
+        console.log('------------------------');
+
+        var obj2={
+            'key1':1111,
+            2222:'val2',
+            true:3333,
+            3.14:false
+        }
+        console.log(obj2['key1'], obj2[2222], obj2[true], obj2[3.14]);
+
+        console.log('------------------------');
+
+        var a = 'aaaa';
+        var obj3={
+            key1 : 'val1',
+            key2 : a,
+            a : 'val3'
+        }
+        obj3[a] = 'edit3'
+        console.log(obj3);
+
+        // 객체 처음 정의할 때 key는 문자열.
+        // 31행에 obj3[a]에 a는 aaaa가 됨
+        // 통신에서 사용하는 자바스크립트는 'key1' 이런식으로 써야 한다..?
+        // 절대 이런식으로 쓰면 안된다는데 뭐가 안된다는거지
+
+        console.log('------------------------');
+
+        var obj4 = new Object();
+        obj4['key1'] = 'val1';
+        obj4['key1'] = 'edit1';
+        console.log(typeof obj4, obj4, obj4['key1'], obj4.key1);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

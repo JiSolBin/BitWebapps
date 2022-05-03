@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var arr1 = ['item1', 'item2', 'item3', 'item4'];
+
+        arr1[1] = 'edit2';
+        arr1[3] = 123;
+        arr1[5] = true;
+
+        for(var i=0; i<arr1.length; ++i){
+            console.log(arr1[i]);
+        }
+
+        console.log('---------------');
+
+        var arr2 = new Array();
+        arr2[0] = 1111;
+        arr2[1] = 2222;
+        arr2[5] = 6666;
+        console.log(arr2.length);
+
+        console.log('---------------');
+
+        var arr3 = new Array(5);
+        console.log("leng : " + arr3.length);
+        for(var i=0; i<arr3.length; ++i){
+            console.log(arr3[i]);
+        }
+
+        console.log('---------------');
+
+        var arr4 = new Array(1,2,3,4);
+        console.log("leng : " + arr4.length);
+        for(var i=0; i<arr4.length; ++i){
+            console.log(arr4[i]);
+        }
+
+        console.log('---------------');
+
+        var arr5 = new Array('aaa');
+        console.log("leng : " + arr5.length);
+        for(var i=0; i<arr5.length; ++i){
+            console.log(arr5[i]);
+        }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function func01(){
+            console.log('함수실행');
+        }
+
+        function func02(){
+            console.log('func2 run...');
+            return 1234;
+        }
+
+        function func03(a){
+            console.log('param:'+a);
+        }
+
+        function func04(a, b){
+            console.log('param1:'+a+", param2:"+b);
+        }
+
+        function func03(){
+            console.log('오버로드는 안됨, 단 덮어씀');
+        }
+
+        var a = func01();
+        console.log(a);
+        var b = func02();
+        console.log(b);
+        func03(1111);
+        func04(1111,2222);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

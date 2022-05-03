@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var obj = {
+            'key1':'val1',
+            'aa':2222,
+            'arr1':[
+                'item1',
+                'item2',
+                function(){
+                    console.log('배열의 함수')
+                    console.log('배열 안 this:', this);
+                }],
+            'func1':function(){
+                console.log("this===window:", this===window); 
+                console.log("this===window.obj:", this===window.obj); 
+                console.log("this===obj:", this===obj); 
+                console.log(this===window);
+
+                console.log('객체의 기능 '+this.aa);
+                // object 내에서 this는 window가 아님
+                // 그냥 aa하면 안나옴
+            },
+            'setKey1':function(a){
+                this.key1=a;
+            },
+            'getKey1':function(){
+                return this.key1;
+            }
+        };
+
+        console.log(obj.key1);
+        console.log(obj.aa);
+        console.log(obj.arr1[1]);
+        obj.arr1[2]();
+        obj.func1();
+
+        console.log('------------------------');
+
+        function func02(){
+            console.log(this===window); 
+        }
+        func02(); // true
+
+        console.log('------------------------');
+
+        console.log(obj.key1, obj.getKey1());
+        obj.setKey1('edit2');
+        console.log(obj.key1, obj.getKey1());
+
+        console.log('------------------------');
+
+        function func03(){
+            var obj = {
+                key1:'val',
+
+                'setKey1':function(a){
+                    this.key1=a;
+                },
+
+                'getKey1':function(){
+                    return this.key1;
+                }
+            };
+
+            return {
+                setKey:obj.setKey1, 
+                getKey:obj.getKey1
+            };
+        }
+
+        var obj3 = func03();
+        obj3.setKey('edit3');
+        console.log(obj3.getKey());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

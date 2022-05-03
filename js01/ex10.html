@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function func01(){
+            // 약간 지역변수 느낌.. 지역변수는 아님
+            // 그럼 뭔데..? -> 뒷단까지 배우면 알 수 있다..?
+            //var b = 9999;
+            var a = 2222;
+            a++;
+
+            // a++ -> window.a 로 수정하면 1112 로 바뀜
+            // 지금은 func01.a?
+        }
+
+        var a = 1111;
+        console.log('a1=',a);
+        console.log('a2=',a);
+        func01();
+        //console.log('b=',b);
+        console.log('a3=',a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

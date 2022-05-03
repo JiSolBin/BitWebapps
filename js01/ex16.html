@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var a = 1111; // 얘도 박싱 가능함
+        var b = 3.14;
+        var c = new Number(34);
+        var d = new Number(3.14);
+        console.log(c, typeof c);
+
+        // a는 참조변수이기 때문에 toString 메서드 사용 가능함
+        // 연산을 하려면 객체에서 값을 풀어내야함 -> 성능 떨어짐
+        // 단, 객체를 효과적으로 잘 썼을 경우 성능 올라감
+        console.log(a.toString());
+        console.log(c+1, typeof c);
+        console.log(d+1, typeof d);
+
+        // window가 가지고 있는 것 = 함수
+        // 그 외에 다른 참조변수가 가진 것 메서드
+        // 자바도 다 class 안에 있으니 메서드
+        // 파이썬도 함수랑 메서드 따로 둠
+
+        console.log(Number.parseInt(d), Number.parseFloat(d), d, typeof d);
+        console.log(window.parseInt(d), parseFloat(d), '내장함수');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
