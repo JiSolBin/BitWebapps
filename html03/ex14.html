@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div>*{
+            background-image: url('imgs/images.jpg');
+            background-repeat: no-repeat;
+            background-position: right;
+
+            width: 250px;
+            height: 250px;
+            transition-duration: 1s;
+        }
+
+        div>:nth-child(1){
+            transition-timing-function: ease;
+        }
+
+        div>:nth-child(2){
+            transition-timing-function: linear;
+        }
+
+        div>:nth-child(3){
+            transition-timing-function: ease-in;
+        }
+
+        div>:nth-child(4){
+            transition-timing-function: ease-out;
+        }
+
+        div>:nth-child(5){
+            transition-timing-function: ease-in-out;
+        }
+
+        div>*:hover{
+            background-color: white;
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>ease</h1>
+        <h1>linear</h1>
+        <h1>ease-in</h1>
+        <h1>ease-out</h1>
+        <h1>ease-in-out</h1>
+    </div>
+</body>
+</html>

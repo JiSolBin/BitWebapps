@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body>div{
+            margin: 0px auto;
+            width: 800px;
+
+            /* aside의 기준 */
+            position: relative;
+        }
+
+        header{
+            height: 100px;
+        }
+
+        nav{
+            height: 50px;
+            background-color: cornsilk;
+        }
+
+        section{
+            width: 600px;
+            position: relative;
+        }
+
+        aside{
+            width: 200px;
+
+            /* 자리 차지를 안해야 하니까 absolute */
+            position: absolute;
+            left: 600px;
+            top: 150px;
+        }
+
+        aside>a{
+            display: block;
+            margin-bottom: 5px;
+            border-top: 2px solid goldenrod;
+            border-bottom: 2px solid goldenrod;
+        }
+
+        footer{
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 4px double goldenrod;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>비트교육센터</h1>
+        </header>
+        <nav>
+            <a href="#">menu1</a>
+            <a href="#">menu2</a>
+            <a href="#">menu3</a>
+            <a href="#">menu4</a>
+        </nav>
+        <section>
+            <h2>제목제목</h2>
+            <p>
+                어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 
+                <br><br>
+                어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 
+                <br><br>
+                어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 
+                <br><br>
+                어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 
+                <br><br>
+                어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 어쩌구 저쩌구 내용 내용 
+            </p>
+        </section>
+        <aside>
+            <a href="#">link</a>
+            <a href="#">link</a>
+            <a href="#">link</a>
+        </aside>
+        <footer>
+            <address>서울특별시 어쩌구 3층</address>
+            Copyright 어쩌구 저쩌구
+        </footer>
+    </div>
+</body>
+</html>

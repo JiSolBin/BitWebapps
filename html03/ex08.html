@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 인쇄 했을 시 css */
+        @media print {
+            body>*{
+                color: gray;
+            }
+
+            h1{
+                color: goldenrod;
+            }
+        }
+
+        /* 화면에 나오는 css */
+        @media screen {
+            body{
+                background-color: black;
+            }
+
+            body>*{
+                color: azure;
+            }
+
+            h1{
+                color: yellowgreen;
+            }
+        }
+
+        /*
+            media all, media speech 가 있음
+            all은 싹 다 -> 생각보다 안씀..?
+            speech는 시각장애인 용
+        */
+    </style>
+</head>
+<body>
+    <h1>어쩌구</h1>
+    <p>내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content </p>
+    <p>내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content </p>
+    <p>내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content 내용 content </p>
+</body>
+</html>

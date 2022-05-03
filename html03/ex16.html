@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style rel="stylesheet" type="text/css">
+body{
+    margin: 0px;
+}
+body>div{
+    margin: 0px auto;
+    width: 800px;
+}
+body>div>#header>h1{
+    width: 80px;
+    height: 80px;
+    text-indent: -999px;
+    background-image: url(imgs/logo.png);
+    float: left;
+}
+body>div>#header>form{
+    float: right;
+    
+}
+body>div>#header{
+    overflow: hidden;
+}
+body>div>#menu{
+    background-color: gray;
+    height: 40px;
+}
+body>div>#menu>ul{
+    list-style: none;
+    padding: 0px;
+    width: 300px;
+    margin: 0px auto;
+}
+body>div>#menu>ul>li{
+    width: 100px;
+    float: left;
+    height: 40px;
+    overflow: hidden;
+}
+body>div>#menu>ul>li>a{
+    display: block;
+    height: 40px;
+    text-decoration: none;
+    color: beige;
+    background-color: darkgray;
+    text-align: center;
+    line-height: 40px;
+    margin: 0px 1px;
+}
+body>div>#menu>ul>li>ol{
+    list-style: none;
+    padding: 0px;
+}
+body>div>#menu>ul>li>ol>li>a{
+    display: block;
+    background-color: darkgray;
+    height: 40px;
+    margin: 1px 1px 0px 1px;
+    color: beige;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+}
+body>div>#menu>ul>li:hover{
+    height: 120px;
+}
+#section{
+    clear: both;
+    width: 100%;
+    float: left;
+}
+
+#footer{
+    border-top: 4px double gray;
+    clear: both;
+    text-align: center;
+    padding-top: 10px;
+}
+
+* {margin:0;padding:0;box-sizing:border-box;}
+ul, li {list-style:none;}
+
+[name="slide"] {display:none;}
+.slidebox {max-width:1000px;width:100%;margin:0 auto;text-align:center;}
+.slidebox img {max-width:100%;}
+.slidebox .slidelist {
+   white-space:nowrap;
+   font-size:0;
+   overflow:hidden;
+}
+.slidebox .slideitem {
+   position:relative;
+   display:inline-block;
+   vertical-align:middle;
+   width:100%;
+   transition:all .35s;
+}
+.slidebox .slideitem label {
+   position:absolute;
+   z-index:1;
+   top:50%;
+   transform:translateY(-50%);
+   padding:20px;
+   border-radius:50%;
+   cursor:pointer;
+}
+label.left {
+   left:20px;
+   background-color:#5F5F5F;
+   background-image:url('./img/left-arrow.png');
+   background-position:center center;
+   background-size:50%;
+   background-repeat:no-repeat;
+}
+label.right {
+   right:20px;
+   background-color:#5F5F5F;
+   background-image:url('./img/right-arrow.png');
+   background-position:center center;
+   background-size:50%;
+   background-repeat:no-repeat;
+}
+
+/* 페이징 스타일 */
+.paginglist {text-align:center;padding:30px 0;}
+.paginglist > li {display:inline-block;vertical-align:middle;margin:0 10px;}
+.paginglist > li > label {display:block;padding:10px 30px;border-radius:10px;background:#ccc;cursor:pointer;}
+.paginglist > li:hover > label {background:#333;}
+
+[id="slide01"]:checked ~ .slidelist .slideitem {transform:translateX(0);animation:slide01 20s infinite;}
+[id="slide02"]:checked ~ .slidelist .slideitem {transform:translateX(-100%);animation:slide02 20s infinite;}
+[id="slide03"]:checked ~ .slidelist .slideitem {transform:translateX(-200%);animation:slide03 20s infinite;}
+[id="slide04"]:checked ~ .slidelist .slideitem {transform:translateX(-300%);animation:slide04 20s infinite;}
+
+@keyframes slide01 {
+   0% {left:0%;}
+   23% {left:0%;}
+   25% {left:-100%;}
+   48% {left:-100%;}
+   50% {left:-200%;}
+   73% {left:-200%;}
+   75% {left:-300%;}
+   98% {left:-300%;}
+   100% {left:0%;}
+}
+@keyframes slide02 {
+   0% {left:0%;}
+   23% {left:0%;}
+   25% {left:-100%;}
+   48% {left:-100%;}
+   50% {left:-200%;}
+   73% {left:-200%;}
+   75% {left:100%;}
+   98% {left:100%;}
+   100% {left:0%;}
+}
+@keyframes slide03 {
+   0% {left:0%;}
+   23% {left:0%;}
+   25% {left:-100%;}
+   48% {left:-100%;}
+   50% {left:200%;}
+   73% {left:200%;}
+   75% {left:100%;}
+   98% {left:100%;}
+   100% {left:0%;}
+}
+@keyframes slide04 {
+   0% {left:0%;}
+   23% {left:0%;}
+   25% {left:300%;}
+   48% {left:300%;}
+   50% {left:200%;}
+   73% {left:200%;}
+   75% {left:100%;}
+   98% {left:100%;}
+   100% {left:0%;}
+}
+        </style>
+    </head>
+    <body>
+        <div>
+            <div id="header">
+                <h1>비트교육센터</h1>
+                <form>
+                    <label>id</label>
+                    <input type="text"/>
+                    <label>pw</label>
+                    <input type="password"/>
+                    <button>login</button>
+                </form>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="#">menu1</a>
+                        <ol>
+                            <li><a href="#">menu1-1</a></li>
+                            <li><a href="#">menu1-2</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">menu2</a>
+                        <ol>
+                            <li><a href="#">menu2-1</a></li>
+                            <li><a href="#">menu2-2</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">menu3</a>
+                        <ol>
+                            <li><a href="#">menu3-1</a></li>
+                            <li><a href="#">menu3-3</a></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <div id="section">
+                <h2>청춘예찬</h2>
+                <p>끝까지 기쁘며, 청춘의 봄날의 우리 이상 원대하고, 얼음과 칼이다. 끓는 얼마나 위하여, 사라지지 품으며, 얼음 끓는다. 맺어, 청춘의 밥을 듣는다. 어디 커다란 어디 심장의 그러므로 같으며, 내려온 불어 온갖 철환하였는가? 사라지지 남는 천지는 장식하는 그림자는 미묘한 사막이다. 길지 지혜는 설레는 공자는 대고, 청춘에서만 바이며, 얼마나 튼튼하며, 아니다. 불러 되려니와, 피부가 뿐이다. 있는 천하를 따뜻한 유소년에게서 생명을 내는 아름다우냐? 위하여 꽃 못하다 피고 그와 얼마나 약동하다.
+                </p>
+            
+            <div class="slidebox">
+                <input type="radio" name="slide" id="slide01" checked>
+                <input type="radio" name="slide" id="slide02">
+                <input type="radio" name="slide" id="slide03">
+                <input type="radio" name="slide" id="slide04">
+                <ul class="slidelist">
+                    <li class="slideitem">
+                        <div>
+                            <label for="slide04" class="left"></label>
+                            <label for="slide02" class="right"></label>
+                            <a><img src="./imgs/slideimg01.jpg"></a>
+                        </div>
+                    </li>
+                    <li class="slideitem">
+                        <div>
+                            <label for="slide01" class="left"></label>
+                            <label for="slide03" class="right"></label>
+                            <a><img src="./imgs/slideimg02.jpg"></a>
+                        </div>
+                    </li>
+                    <li class="slideitem">
+                        <div>
+                            <label for="slide02" class="left"></label>
+                            <label for="slide04" class="right"></label>
+                            <a><img src="./imgs/slideimg03.jpg"></a>
+                        </div>
+                    </li>
+                    <li class="slideitem">
+                        <div>
+                            <label for="slide03" class="left"></label>
+                            <label for="slide01" class="right"></label>
+                            <a><img src="./imgs/slideimg04.jpg"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            <div id="footer">
+                <address>서울특별시 서초구 서초대로74길33 비트빌 3층</address>
+                Copyright by bitacademy co.ltd. All rights reserved
+            </div>
+        </div>
+    </body>
+</html>

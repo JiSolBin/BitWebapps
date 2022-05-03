@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            animation-name: ani1;
+            animation-duration: 3s;
+
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes ani1 {
+            0% {
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+
+            25% {
+                margin-left: 500px;
+                margin-top: 0px;
+            }
+
+            50% {
+                margin-left: 500px;
+                margin-top: 300px;
+            }
+
+            75% {
+                margin-left: 0px;
+                margin-top: 300px;
+            }
+
+            100% {
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>box1</div>
+</body>
+
+</html>
