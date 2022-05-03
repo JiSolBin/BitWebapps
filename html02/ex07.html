@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body>*{
+            width: 500px;
+            border: 1px solid lightseagreen;
+        }
+
+        nav{
+            background-color: lightseagreen;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav>a{
+            color: black;
+            text-decoration: none;
+            border-left: 1px solid white;
+
+            padding: 10px;
+        }
+
+        nav>a:last-child{
+            border-right: 1px solid white;
+        }
+
+        nav>a:hover{
+            color: rgb(24, 60, 128);
+            font-weight: bold;
+        }
+
+        section, aside{
+            display: inline-block;
+            height: 100px;
+        }
+
+        section{
+            width: 300px;
+        }
+
+        aside{
+            width: 194px;
+        }
+
+        aside>a{
+            display: block;
+        }
+
+        footer{
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 5px double lightseagreen;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <img src="imgs/logo.jpg">
+        </header>
+
+        <nav>
+            <a href="ex07.html">HOME</a>
+            <a href="ex01.html">EX01</a>
+            <a href="ex02.html">EX02</a>
+            <a href="ex03.html">EX03</a>
+        </nav>
+
+        <section>
+            <h1>Section</h1>
+            <p>여기는 섹션</p>
+        </section>
+
+        <aside>
+            <a href="http://google.com">google</a>
+            <a href="http://naver.com">naver</a>
+        </aside>
+
+        <footer>
+            <address> 서울특별시 어쩌구 어쩌구 3층 </address>
+            Copyright by 어쩌구
+        </footer>   
+    </div>
+</body>
+</html>

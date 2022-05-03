@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        input:read-only{
+            color:red;
+        }
+        input:checked+label{
+            color: rgb(62, 128, 36);
+        }
+        input[readonly='ro']{
+            color: blueviolet;
+        }
+        input[checked='ck']+label{
+            color: rgb(43, 226, 119);
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+
+    <form>
+        <div>
+            <label></label>
+            <input type="text" value="input1">
+        </div>
+        <div>
+            <label></label>
+            <input type="text" value="input2" readonly="ro">
+        </div>
+        <div>
+            <label></label>
+            <input type="text" value="input3" disabled>
+        </div>
+
+        <div>
+            <input type="checkbox" name="chk1">
+            <label>chk1</label>
+            <input type="checkbox" name="chk2" checked="ck">
+            <label>chk2</label>
+            <input type="checkbox" name="chk3">
+            <label>chk3</label>
+        </div>
+
+        <div>
+            <select>
+                <option>item1</option>
+                <option selected>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+    </form>
+</body>
+</html>
