@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body>div {
+            background-color: darkseagreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>use Text</h1>
+    <div id="target">
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+
+    <script>
+        console.log(document.querySelector('h1').innerText); //use Test
+        // ex01 16~20행을 아래 코드 한 줄로
+        // document.querySelector('h1').innerText='h1 <a href="#">태그 문자열</a> 수정';
+        // 위 코드(innerText)는 태그 적용X innerHTML은 태그 적용
+        document.querySelector('h1').innerHTML='h1 <a href="#">태그 문자열</a> 수정';
+
+        var ul = document.querySelector('#target>ul');
+        console.log(ul.innerText); //item1~4 (개행도 포함)
+        console.log(ul.innerHTML); //html문 (ul 안의 태그까지 문자열로)
+
+        console.log(ul.outerText); //item1~4 (inner와 같음)
+        console.log(ul.outerHTML); //자기자신(ul)까지 포함한 HTML문
+        // 이런식으로 수정도 가능
+        // ul.outerHTML = '<ol><li>item1</li><li>item2</li></ol>';
+
+        // 주의할 점 -> 기존내용을 불러온 뒤에 추가해야함 (기존꺼 뒤에다 붙여도 됨)
+        ul.innerHTML = ul.innerHTML + '<li>item5</li>'; 
+        ul.outerHTML = ul.outerHTML + '<a href="#">add</a>';
+    </script>
+</body>
+</html>

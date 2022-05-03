@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div{
+            background-image: url(imgs/images.jpg);
+            width: 248px;
+            height: 205px;
+            position: absolute; /* 편의상 absolute */
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var target = document.querySelector('#target');
+            target.style.left = '0px';
+            target.style.top = '0px';
+
+            //클릭한 곳에 이미지 배치됨
+            document.onclick = function(e){
+                target.style.left = e.clientX-124+'px';
+                target.style.top = e.clientY-102+'px';
+            }
+
+            window.onkeydown = function(e){
+                if(e.keyCode==39){ // 오른쪽 방향키
+                    target.style.left = parseInt(target.style.left)+10+'px';
+                }
+                else if(e.keyCode==37){ // 왼쪽 방향키
+                    target.style.left = parseInt(target.style.left)-10+'px';
+                }
+                else if(e.keyCode==38){ // 아래쪽 방향키
+                    target.style.top = parseInt(target.style.top)-10+'px';
+                }
+                else if(e.keyCode==40){ // 위쪽 방향키
+                    target.style.top = parseInt(target.style.top)+10+'px';
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="target">
+
+    </div>
+</body>
+</html>

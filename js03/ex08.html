@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function func01(){
+            console.log('버튼 클릭');
+        }
+
+        // function 안에 있으면 h1 태그 접근할 수 있음
+        // 왜..?
+        function func02(){
+            var h1 = document.querySelector('h1');
+            h1.innerText = '글자바꾸기';
+        }
+    </script>
+</head>
+<body>
+    <h1>이벤트 - DOM Level1(인라인 방식, 쓰지 말아야 함)</h1>
+    <button onclick="func01();">버튼</button>
+</body>
+</html>

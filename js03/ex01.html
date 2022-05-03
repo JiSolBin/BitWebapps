@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM 제어</h1>
+    <div id="target">
+
+    </div>
+
+    <script>
+        // var h1 = document.firstElementChild.lastElementChild.firstElementChild;
+        // var oldTxt = h1.childNodes[0];
+        // var newTxt = document.createTextNode('수정된 글자');
+        // h1.removeChild(oldTxt);
+        // h1.appendChild(newTxt);
+
+        function newEle(tagName, txt){
+            var ele = document.createElement(tagName);
+            ele.appendChild(document.createTextNode(txt));
+
+            return ele;
+        }
+
+        // function appendUl(ul, txt){
+        //     ul.appendChild(newEle('li', txt));
+        // }
+
+        //var ul = document.createElement('ul');
+        // appendUl(ul, 'add1');
+        // appendUl(ul, 'add2');
+        // appendUl(ul, 'add3');
+
+        var ul = document.createElement('ul');
+        ul.appendUl = function(txt){
+            // this = ul
+            this.appendChild(newEle('li',txt));
+            return this;
+        };
+
+        ul
+            .appendUl('add1')
+            .appendUl('add2')
+            .appendUl('add3')
+            .appendUl('add4');
+
+        var target = document.getElementById('target');
+        target.appendChild(ul);
+    </script>
+</body>
+</html>

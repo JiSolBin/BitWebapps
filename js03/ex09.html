@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload=function(){
+            var h1 = document.querySelector('h1');
+            h1.innerHTML='수정';
+        };
+
+        window.onbeforeunload = function(){
+            // 크롬에서 막아놔서 alert 안뜸
+            alert('어쩌구');
+        };
+
+        window.onerror = function(){
+            // 페이지 데이터 로딩 중 에러 발생 시
+        };
+
+        window.onresize = function(){
+            // 이걸 통해서도 반응형 웹 제작 가능
+            console.log('사이즈 변경시',window.screenX,window.screenY);
+        }
+
+        window.onchange = function(){
+            console.log('창 변화');
+        };
+    </script>
+</head>
+<body>
+    <h1>DOM Level2 event</h1>
+    <button>버튼</button>
+    <br><br>
+    <form>
+        <input type="text" value="onchange test">
+    </form>
+</body>
+</html>

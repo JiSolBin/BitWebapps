@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+            var alink = document.querySelector('p>a');
+            var form = document.querySelector('form');
+            var btns = form.querySelector('button');
+            var div1 = form.querySelector('div:first-child').innerHTML;
+
+            ////////////////////////////////////////////////////////////
+
+            var labels = document.querySelectorAll('div>label');
+            var inputs = form.querySelectorAll('div>input');
+
+            labels[1].onclick = function(){
+                inputs[1].focus();
+            };
+
+            function myfocus(e){
+                e.target.nextElementSibling.focus();
+            };
+            labels[0].onclick = myfocus;
+            labels[1].onclick = myfocus;
+
+            var select = document.querySelector('select');
+            select.onclick = function(){
+                this.innerHTML = '<option>item1</option><option>item2</option><option>item3</option>';
+            };
+
+            form.querySelectorAll('button')[2].onclick = function(){
+                history.back();
+            };
+
+            // onblur 쓰지 말고 onfocusout 사용하기
+            // document.querySelector('div:nth-child(2)>input').onblur = function(){
+            //     console.log('포커스 잃었을 때');
+            // };
+            
+            // onfocusout.. 원래 돼야 하는데 앞에 코드 꼬여서 안됨
+            document.querySelector('div:nth-child(2)>input').onfocusout = function(){
+                console.log('포커스 잃었을 때');
+            };
+
+            ////////////////////////////////////////////////////////////
+            
+            alink.onclick = function(){
+                alert('페이지 이동');
+
+                // 확인 눌러도 페이지 이동 X
+                return false;
+            };
+
+            // submit 클릭
+            form.onsubmit = function(){
+                var id = form.querySelector('div:first-child>input');
+
+                // id가 입력되지 않았거나, 4자 미만, @ 포함 안되면 return false
+                if(!id.value){
+                    form.querySelector('div:first-child').innerHTML = div1;
+                    id = form.querySelector('div:first-child>input');
+
+                    id.outerHTML = id.outerHTML + "<span> 비었습니다</span>";
+                    return false; // submit 눌러도 작동 X
+                }   
+                else if(id.value.length<4){
+                    form.querySelector('div:first-child').innerHTML = div1;
+                    id = form.querySelector('div:first-child>input');
+
+                    id.outerHTML = id.outerHTML + "<span> 4자 이상</span>";
+                    return false;
+                }
+                else if(id.value.indexOf('@')<1){
+                    form.querySelector('div:first-child').innerHTML = div1;
+                    id = form.querySelector('div:first-child>input');
+
+                    id.outerHTML = id.outerHTML + "<span> 이메일 형식 아님</span>";
+                    return false;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <p>링크 : <a href="https://google.com">이동</a></p>
+    <form action="http://naver.com">
+        <div>
+            <label>ID</label>
+            <input type="text">
+        </div>
+        <div>
+            <label>PW</label>
+            <input type="password">
+        </div>
+        <div>
+            <input type="radio" name="ra">
+            <label>item1</label>
+            <input type="radio" name="ra">
+            <label>item2</label>
+            <input type="radio" name="ra">
+            <label>item3</label>
+        </div>
+        <div>
+            <select>
+                <option>선택하세요</option>
+            </select>
+        </div>
+        <div>
+            <textarea></textarea>
+        </div>
+        <div>
+            <button type="submit">입력</button>
+            <button type="reset">취소</button>
+            <button type="button">뒤로</button>
+        </div>
+    </form>
+</body>
+</html>

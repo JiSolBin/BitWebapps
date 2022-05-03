@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+            margin: 0px auto;
+        }
+
+        ul{
+            list-style: none;
+            padding:0px;
+            width: 3600px;
+        }
+
+        ul>li{
+            float: left;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="imgs/index.png"></li>
+            <li><img src="imgs/index2.png"></li>
+            <li><img src="imgs/index3.png"></li>
+        </ul>
+    </div>
+
+    <script>
+        var ul = document.querySelector('ul');
+        var imgs = ul.querySelectorAll('img');
+
+        // 아래 네 줄 안쓰고 arr 직접 만들어도 됨 (li 없는 경우)
+        var arr = [];
+        imgs.forEach(function(ele){
+            arr.push(ele.src);
+        });
+
+        var cnt = 0;
+        function loopImg(){
+            ul.innerHTML = '<li><img src="'+ arr[cnt] +'"></li>';
+            if(++cnt==3) cnt = 0;
+            setTimeout(loopImg, 1000);
+        }
+
+        loopImg();
+
+        // function loopImg(){
+        //     var img = arr.shift();
+        //     ul.innerHTML = '<li><img src="'+ img +'"></li>';
+        //     arr.push(img);
+        //     setTimeout(loopImg, 1000);
+        // }
+
+        // loopImg();
+    </script>
+</body>
+</html>

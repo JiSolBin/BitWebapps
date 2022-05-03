@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .cl01{
+            background-color: aquamarine;
+        }
+        .cl02{
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="cl02">회원가입</h1>
+    <form>
+        <div>
+            <label>id</label>
+            <input type="text">
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="pass">
+        </div>
+        <div>
+            <input type="radio" name="ra">
+            <label>item1</label>
+            <input type="radio" name="ra">
+            <label>item2</label>
+            <input type="radio" name="ra">
+            <label>item3</label>
+        </div>
+        <div>
+            <select>
+                <option>선택하세요</option>
+            </select>
+        </div>
+        <div>
+            <button>전송</button>
+        </div>
+    </form>
+    <div>outter</div>
+
+    <script>
+        // set calssName
+        document
+            .querySelector('form')
+            .querySelectorAll('div>label:first-child')
+            .forEach(function(ele, idx){
+                ele.className='cl0'+(idx+1);
+            });
+
+            // 자바스크립트에선 for를 지원하는 callback function 기능이 있음
+            // => arr.forEach
+            // callback 함수를 인자로 넣어주면 arr length만큼 함수 반복함
+            // 매개변수 3개를 받을 수 있는데 각각 element, index, 배열 자기자신
+        
+        // select에 item 추가
+        var sel = document.querySelector('select');
+        sel.querySelectorAll('option').forEach(function(ele){
+            sel.removeChild(ele);
+        });
+
+        var arr2 = ['item1', 'item2', 'item3', 'item4'];
+        arr2.forEach(function(ele){
+            var opt = document.createElement('option');
+            opt.appendChild(document.createTextNode(ele));
+            sel.appendChild(opt);
+        });
+    </script>
+</body>
+</html>

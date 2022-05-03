@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>element slecting</h1>
+    <p>선택자</p>
+    <h2 id="id1">제목</h2>
+    <p class="cl1">내용</p>
+    <h2 class="cl2">제목</h2>
+    <p class="cl1 cl2">내용</p>
+    <h2 class="cl3">제목</h2>
+    <p class="cl2">내용</p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+    </ul>
+
+    <script>
+        // getEleById는 못찾으면 null
+        // document.getElementById('id1');
+        // getEleByClassName는 못찾으면 length 0 (배열)
+        // document.getElementsByClassName('cl1');
+        // li 다 찾음 (7개), 못찾으면 length 0 (배열)
+        // document.getElementsByTagName('li');
+
+        // getEleById.style.color='red'는 가능해도 ByClassName, ByTagName은 안됨 -> 배열이니까
+        // for(ele of document.getElementsByClassName('cl1'))
+        //     ele.style.color='blue'
+        // 이런 식으로 가능
+
+        var id01 = document.getElementById('id1');
+        var cl01 = document.getElementsByClassName('cl1');
+        cl01[0].style.color='blue';
+        var lis = document.getElementsByTagName('li');
+        console.log(lis.length); // 7
+    </script>
+</body>
+</html>
