@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        console.log('start');
+
+        window.onload = function(){
+            console.log('load');
+
+            var url = 'http://localhost:8080/js04/ex06.html';
+            var xhr = new XMLHttpRequest();
+
+            // 통신 상태가 바뀔 때 마다 실행 (readyState:상태코드)
+            // 파라미터 : 이벤트 객체
+            xhr.onreadystatechange = function(e){
+                console.log('event');
+                if(xhr.readyState==4 && xhr.status==200){ // 4 : DONE
+
+                    // 여기에 내가 처리하고 싶은 내용
+                    document.querySelector('#target').innerHTML = xhr.responseText;
+                }
+            };
+
+            // 통신정보는 open을 통해
+            xhr.open('get', url);
+            xhr.send();
+
+            console.log('send');
+        };
+
+        console.log('end');
+    </script>
+</head>
+<body>
+    <h1>ajax 통신</h1>
+    <p>자바스크립트의 기본통신방식으로</p>
+    <p>비동기 통신 진행</p>
+    <div id="target"></div>
+</body>
+</html>

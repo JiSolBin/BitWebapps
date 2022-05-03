@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        nav{
+            background-color: lightgrey;
+            height: 50px;
+        }
+        nav>ul{
+            list-style: none;
+            padding: 0px;
+            /* width: 408px; */
+            margin: auto;
+        }
+        nav>ul>li{
+            width: 100px;
+            height: 50px;
+            float: left;
+            margin: 0px 1px;
+        }
+        nav>ul>li>a{
+            display: block;
+            height: 50px;
+            background-color: grey;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-weight: bold;
+        }
+        nav>ul>li>ol{
+            list-style: none;
+            padding: 0px;
+        }
+        nav>ul>li>ol>li{
+            width: 100px;
+            height: 50px;
+        }
+        nav>ul>li>ol>li>a{
+            border-top: 1px solid white;
+            display: block;
+            height: 49px;
+            background-color: grey;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        // var mn1, mn2, mn3, mn4;
+        
+        window.onload = function(){
+            var lis = document.querySelectorAll('ul>li');
+            // mn1 = document.querySelectorAll('ul>li')[0];
+            // mn2 = document.querySelectorAll('ul>li')[1];
+            // mn3 = document.querySelectorAll('ul>li')[2];
+            // mn4 = document.querySelectorAll('ul>li')[3];
+
+            // 메뉴 하나 더 넣으면 ui 깨지므로 이렇게
+            var ul = document.querySelector('nav>ul');
+            ul.style.width = 102*lis.length+'px';
+
+            //lis는 유사배열이므로 forEach 가능
+            var hide = function(arr){
+                arr.forEach(function(ele){
+                    ele.querySelector('ol').style.display = 'none';
+                });
+            };
+
+            hide(lis);
+            // mn1.querySelector('ol').style.display = 'none';
+            // mn2.querySelector('ol').style.display = 'none';
+            // mn3.querySelector('ol').style.display = 'none';
+            // mn4.querySelector('ol').style.display = 'none';
+
+            lis.forEach(function(ele){
+                ele.onclick = function(){
+                    // ele = li
+                    if(ele.querySelector('ol').style.display == 'none'){
+                        hide(lis);
+                        ele.querySelector('ol').style.display = 'block'
+                    }
+                    else{
+                        ele.querySelector('ol').style.display = 'none'
+                    }
+                    return false;
+                };
+
+                //onmouseout은 안됨!!!!
+                // ele.onmouseleave = function(){
+                //     ele.querySelector('ol').style.display = 'none';
+                // };
+            });
+
+            // mn1.querySelector('a').onclick = function(e){
+            //     if(mn1.querySelector('ol').style.display == 'none'){
+            //         mn1.querySelector('ol').style.display = 'block';
+            //         mn2.querySelector('ol').style.display = 'none';
+            //         mn3.querySelector('ol').style.display = 'none';        
+            //         mn4.querySelector('ol').style.display = 'none';
+            //     }
+            //     else
+            //         mn1.querySelector('ol').style.display = 'none';
+            //     return false;
+            // };
+
+            // mn2.querySelector('a').onclick = function(e){
+            //     if(mn2.querySelector('ol').style.display == 'none'){
+            //         mn1.querySelector('ol').style.display = 'none';
+            //         mn2.querySelector('ol').style.display = 'block';
+            //         mn3.querySelector('ol').style.display = 'none';        
+            //         mn4.querySelector('ol').style.display = 'none';
+            //     }
+            //     else
+            //         mn2.querySelector('ol').style.display = 'none';
+            //     return false;
+            // };
+
+            // mn3.querySelector('a').onclick = function(e){
+            //     if(mn3.querySelector('ol').style.display == 'none'){
+            //         mn1.querySelector('ol').style.display = 'none';
+            //         mn2.querySelector('ol').style.display = 'none';
+            //         mn3.querySelector('ol').style.display = 'block';        
+            //         mn4.querySelector('ol').style.display = 'none';
+            //     }
+            //     else
+            //         mn3.querySelector('ol').style.display = 'none';
+            //     return false;
+            // };
+
+            // mn4.querySelector('a').onclick = function(e){
+            //     if(mn4.querySelector('ol').style.display == 'none'){
+            //         mn1.querySelector('ol').style.display = 'none';
+            //         mn2.querySelector('ol').style.display = 'none';
+            //         mn3.querySelector('ol').style.display = 'none';        
+            //         mn4.querySelector('ol').style.display = 'block';
+            //     }
+            //     else
+            //         mn4.querySelector('ol').style.display = 'none';
+            //     return false;
+            // };
+        };
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">menu1</a>
+                <ol>
+                    <li><a href="#">menu1-1</a></li>
+                    <li><a href="#">menu1-2</a></li>
+                    <li><a href="#">menu1-3</a></li>
+                    <li><a href="#">menu1-4</a></li>
+                </ol>
+            </li>
+
+            <li>
+                <a href="#">menu2</a>
+                <ol>
+                    <li><a href="#">menu2-1</a></li>
+                    <li><a href="#">menu2-2</a></li>
+                    <li><a href="#">menu2-3</a></li>
+                    <li><a href="#">menu2-4</a></li>
+                </ol>
+            </li>
+
+            <li>
+                <a href="#">menu3</a>
+                <ol>
+                    <li><a href="#">menu3-1</a></li>
+                    <li><a href="#">menu3-2</a></li>
+                    <li><a href="#">menu3-3</a></li>
+                    <li><a href="#">menu3-4</a></li>
+                </ol>
+            </li>
+
+            <li>
+                <a href="#">menu4</a>
+                <ol>
+                    <li><a href="#">menu4-1</a></li>
+                    <li><a href="#">menu4-2</a></li>
+                    <li><a href="#">menu4-3</a></li>
+                    <li><a href="#">menu4-4</a></li>
+                </ol>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        div>div{
+            width: 200px;
+            height: 200px;
+            background-color: darkgreen;
+        }
+
+        div>div>div{
+            width: 100px;
+            height: 100px;
+            background-color: darkorange;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            box1 = document.querySelectorAll('div')[0];
+            box2 = document.querySelectorAll('div')[1];
+            box3 = document.querySelectorAll('div')[2];
+
+            // box3을 누르면 2->1도 같이 클릭됨 : 버블링(상위로 이벤트 전파)
+            // 캡쳐링 : 하위로 이벤트 전파
+            // true 하면 1->2->3 순서로 이벤트 발생, false는 반대
+            // level 3 끼리 의미있는 이야기
+            box1.addEventListener('click', function(){
+                console.log(1);
+            }, true);
+
+            box2.addEventListener('click', function(e){
+                // 캡쳐링 true - box2에서 막아버리면 2에서 이벤트 막히므로 3 이벤트 발생X
+                // 캡쳐링 false - 1 이벤트 발생 X
+                // e.stopPropagation();
+                console.log(2);
+            }, true);
+
+            box3.addEventListener('click', function(e){
+                // 이벤트 전파 안하고 싶을 때
+                // e.stopPropagation();
+                console.log(3);
+            }, true);
+        };
+    </script>
+</head>
+<body>
+    <h1>버블링과 캡쳐링</h1>
+    <div>
+        box1
+        <div>
+            box2
+            <div>
+                box3
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload=function(){
+            var btns = document.querySelectorAll('button');
+            var input = document.querySelector('input');
+            var select = document.querySelector('select');
+            var callback1 = function(e){
+                console.log('event 발생', e.type, this.value);
+            };
+
+            //btns[0].addEventListener('click', callback1);
+            //click, dblclick, mousedown, mouseup, mousemove
+            //mouseover, mouseout, mouseenter, mouseleave
+
+            //input.addEventListener('keydown', callback1);
+            //keydown, keypress, keyup
+            //change(enter 후 이벤트 발생), focus, blur, focusin, focusout
+
+            // <-> input.change
+            //select.addEventListener('change', callback1);
+
+            //document.addEventListener('scroll', callback1);
+
+            var callback2 = function(e){
+                console.log(e.target.innerHTML);
+            };
+
+            var callback3 = function(e){
+                btns[1].removeEventListener('click', callback2);
+            };
+
+            var callback4 = function(e){
+                console.log('단 한 번 수행하는 이벤트');
+                this.removeEventListener('click', callback04);
+                // 이벤트리스너 사용 땐 익명함수 사용X
+                // 익명함수 사용 시 삭제를 위해 접근할 수 있는 방법이 없음
+            }
+
+            btns[1].addEventListener('click', callback2);
+            btns[2].addEventListener('click', callback3);
+            btns[3].addEventListener('click', callback4);
+        };
+    </script>
+</head>
+<body>
+    <h1>event</h1>
+
+    <button>btn1</button><br>
+    <button>btn2</button><br>
+    <button>btn3</button><br>
+    <button>btn4</button><br>
+
+    <select name="" id="">
+        <option value="">item1</option>
+        <option value="">item2</option>
+    </select><br>
+
+    <input type="text"><br>
+
+    <div>box</div>
+</body>
+</html>

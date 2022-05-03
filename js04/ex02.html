@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        h1{
+            color: rebeccapurple;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var h1 = document.querySelector('h1');
+            console.log('level2의 로딩');
+
+            var btn = document.querySelector('button');
+            // level2는 인라인 방식과 다름없다 생각하면 됨
+            btn.onclick = function(){
+                console.log('level2');
+            };
+            // level3는 이 이벤트가 일어났을 때, 함께 일어날 것 들을 추가하는 느낌
+            // 코드 순서를 바꿔도 level2가 먼저 실행됨
+            btn.addEventListener('click', function(){
+                console.log('level3');
+            });
+
+            console.log("h1 color : ", h1.style.color);
+            console.log("h1 background color : ", h1.style.backgroundColor);
+
+            console.log(h1.attributes[0].nodeValue); // background-color: beige;
+        };
+
+        // window.addEventListener('load', function(){
+        //     console.log('level3의 로딩');
+        // });
+
+        // window.onload = function(){
+        //     console.log('level2의 로딩');
+        // };
+
+        // window.addEventListener('load', function(){
+        //     console.log('level3의 로딩');
+        // });
+    </script>
+</head>
+<body>
+    <h1 style="background-color: beige;">이벤트 선택</h1>
+    <button>버튼</button>
+</body>
+</html>
