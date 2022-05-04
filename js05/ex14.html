@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <style rel="stylesheet" type="text/css">
+       span{
+           background-color: aqua;
+       }
+    </style>
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload=function(){
+            // $('span').attr('style','color:red');
+
+            // 엘리먼트의 속성중에 style이 없어서 css 안잡힘
+            console.log($('span').attr('style'));
+            console.log($('span').css('style'));
+
+            console.log($('a').attr('href'));
+            $('a').attr('href','http://daum.net');
+            $('span').attr('onclick'
+                ,'(function(){location.href="https://google.com";})();')
+
+            console.log($('form').attr('method')); // get
+            console.log($('form input').attr('type')); // text
+            
+            $('form input').attr('type').attr('type','password'); // text->password
+            $('form button').attr('type','reset'); // submit -> reset
+            $('form button').removeAttr('type'); // reset -> submit (기본이 submit)
+            $('a').removeAttr('href');
+
+            // 값의 상태 확인
+            console.log($('input').eq(0).prop('readonly'));
+            console.log($('input').eq(1).prop('checked'));
+            console.log($('input').eq(2).prop('checked'));
+            console.log($('input').eq(3).prop('checked'));
+            console.log($('option').eq(0).prop('selected'));
+            console.log($('option').eq(1).prop('selected'));
+            console.log($('option').eq(2).prop('selected'));
+            console.log($('option').eq(3).prop('selected'));
+
+            // 속성 변경
+            $('input').eq(0).removeProp('readOnly');
+            $('input').eq(3).prop('checked','checked');
+            $('option').eq(3).prop('selected','selected');
+        };
+    </script>
+</head>
+<body>
+    <p>다음으로 이동 <a href="#">link</a></p>
+    <form action="ex13.html" method="get">
+        <div><input type="text" readonly="readonly"></div>
+        <div><input type="checkbox">item1
+            <input type="checkbox" checked="checked">item2
+            <input type="checkbox">item3
+        
+        </div>
+        <div><select>
+            <option>item1</option>
+            <option>item2</option>
+            <option selected="selected">item3</option>
+            <option>item4</option>
+        </select></div>
+        <div><button>이동</button></div>
+    </form>
+    <span>이동</span>
+</body>
+</html>

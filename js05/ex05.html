@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function(){
+            console.log($('h1'));
+            console.log($('<h1>test2</h1>'));
+            var h1 = document.querySelector('h1');
+            console.log($(h1));
+            console.log($(h1.outerHTML));
+            var arr = ['item1', 'item2'];
+            console.log($(arr).eq(0));
+            var callback1 = function(){
+                alert('callback function run...');
+            };
+
+            console.log('before');
+            // 바로 실행됨 -> jQuery가 호출
+            $(callback1);
+            console.log('after');
+        };
+    </script>
+</head>
+<body>
+    <h1>test</h1>
+</body>
+</html>

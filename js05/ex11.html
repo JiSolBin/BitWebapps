@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+            padding: 0px;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        var callback3 = function(){
+            $('li').first().appendTo('ul');
+            setTimeout(callback3,1000);
+        };
+
+        window.onload = function(){
+            callback3();
+        };
+    </script>
+</head>
+<body>
+    <h1>dom insert</h1>
+    <div>
+        <ul>
+            <li></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img01" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img02" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img03" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img04" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img05" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img06" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

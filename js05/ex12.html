@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function(){
+            // ele1 = $('h2').remove(); // 다 삭제
+            // ele1 = $('h3').detach(); // 연관된 제이쿼리 명령어들 다 유지
+            // $('h1').empty(); // <h1></h1>
+            
+            // $('span').unwrap('h4'); // 부모 unwrap
+            // $('span').wrap('h1'); // h1으로 wrap
+            // $('span').wrapInner('<a href="#"></a>'); // wrapInner 아래의 태그로 둘러쌈
+            //.wrapAll -> 선택한 요소를 모아서 하나의 태그로 둘러쌈
+
+            // $('<div>edit</div>').replaceAll('h4'); // h4(하위 요소 포함) -> <div>edit</div>
+            // $('h1').clone().html('수정').insertBefore('h1'); // 복제
+
+        };
+    </script>
+</head>
+<body>
+    <h1>remove & detach</h1>
+    <h2>remove</h2>
+    <h3>detach</h3>
+    <h4><span>부모 <a href="#">자식</a> 부모</span></h4>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function(){
+            // $('ul').html($('ul').html()+'<li>item5</li>');
+            // $('ul').html('<li>item5</li>'+$('ul').html());
+            // $('ul').append('<li>item5</li>');
+            // $('ul').prepend('<li>item0</li>');
+            $('<li>item55</li>').appendTo('ul');
+            $('<li>item00</li>').prependTo('ul');
+
+            // 대상이 li:eq(2) 이므로 얘만 red
+            // 만약 14행에 .css~ 붙이면 ul 모두 red (대상이 ul)
+            $('li:eq(2)').prependTo('ul').css('color','red');
+
+            var arr = ['aaa', 'bbb'];
+            $('ul').append(arr);
+            // $('li:eq(2)').prependTo(arr); -> 안됨
+        };
+    </script>
+</head>
+<body>
+    <h1>append & prepend</h1>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+</body>
+</html>

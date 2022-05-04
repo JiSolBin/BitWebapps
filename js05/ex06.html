@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function(){
+            // inner &amp; outer
+            // inner & outer
+            console.log($('h1').html(), $('h1').text());
+
+            // 아래 둘 같음
+            console.log($('ul').html());
+            console.log(document.querySelector('ul').innerHTML);
+
+            // 아래 둘 같음
+            $('ul').html('<li>edit jquery</li>'); // 매개변수 없 : getter, 있 : setter
+            document.querySelector('ul').innerHTML += '<li>edit script</li>';
+
+            // old 사용
+            $('li').html(function(idx,old){
+                console.log(idx,old);
+                return old + ' <a href="#">태그 사용 가능</a>';
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>inner & outer</h1>
+    <div>
+        <ul>
+            <li>item1</li>
+            <li>item2</li>
+            <li>item3</li>
+            <li>item4</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        var arr = ['imgs/index.png', 'imgs/index2.png', 'imgs/index3.png'];
+        var idx = 0;
+
+        function changeImg(){
+            $('li').css('display','none').eq(idx++).css('display', 'block');
+            if(idx==arr.length) idx=0;
+
+            setTimeout(changeImg, 1000);
+        }
+
+        window.onload = function(){
+            $('li').css('display', 'none');
+
+            changeImg();
+        };
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <div>
+        <ul>
+            <li><img src="imgs/index.png" alt=""></li>
+            <li><img src="imgs/index2.png" alt=""></li>
+            <li><img src="imgs/index3.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

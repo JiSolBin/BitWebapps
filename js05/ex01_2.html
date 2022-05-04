@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        window.onload = function(){
+            // // find : 자식요소들 뒤짐
+            // $('body').find('p').css('color', 'red');
+
+            // // 콜백함수 사용
+            // $('p').filter(function(idx,ele){
+            //     console.log(idx,ele);
+            //     return ele.innerHTML = '내용~~~~~';
+            // }).css('background-color', 'lightgreen');
+
+            // // querySelector로 가져오기 가능
+            // $('p').filter(document.querySelector('.cl1')).css('color','blue');
+
+            // // not
+            // $('p').not('#id1').css('color','green');
+
+            // // has
+            // $('li').has('a').css('color', 'yellow');
+
+            // // is로 class 등을 지정
+            // console.log($('h1+p+h2').is('.cl1'));
+            // $('.cl1').css('color', 'yellow');
+
+            // add 사용해서 추가 가능
+            // end를 사용하여 and로 추가된 요소들 제어 끝내기
+            // css는 덮어쓰기 됨
+            $('p').css('background-color', 'blue')
+            .add('h1').css('color','red')
+            .end().css('background-color', 'green');
+        };
+    </script>    
+</head>
+<body>
+    <h1>jquery 선택자</h1>
+    <p>내용</p>
+    <h2>제목1</h2>
+    <p class="cl1">내용1</p>
+    <h2 class="cl1">제목2</h2>
+    <p class="cl1 cl2">내용2</p>
+    <h2 class="cl2">제목3</h2>
+    <p id="id1">내용3</p>
+    <h2>제목4</h2>
+    <p>내용4</p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li><a href="#">item3</a></li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+    </ul>
+</body>
+</html>
