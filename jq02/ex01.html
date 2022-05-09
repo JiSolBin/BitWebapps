@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{
+            margin: 10px;
+            /* padding: 5px; */
+            border: 1px solid gray;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('h1').css('background-color', 'red');
+
+            // 똑같음
+            console.log($('h1').css('height'));
+            console.log($('h1').height());
+
+            // height : contents 기준 height
+            // outer, inner는 padding의 영향을 받음
+            // outer는 border의 영향을 받음
+            console.log($('h1').height(), 
+                        $('h1').outerHeight(),
+                        $('h1').innerHeight(),
+                        $('h1').outerHeight(true));
+
+            $('h1').height(100);
+            $('h1').width(80);
+            
+            console.log($('body').height(),
+                        $(document).height());
+            console.log($(document).height(),
+                        $(window).height());
+        });
+    </script>
+</head>
+<body>
+    <h1>css</h1>
+    <h2>제목</h2>
+    <p>내용</p>
+</body>
+</html>

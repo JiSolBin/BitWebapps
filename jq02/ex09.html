@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            var callback1 = function(e){
+                console.log(e.type, e.target.innerText)
+            };
+
+            //on을 사용하면 dom3의 장점을 살릴 수 있음
+
+            $('button').eq(0).click(callback1).dblclick(callback1);
+            $('button').eq(1).on('click dblclick', callback1);
+
+            $('button').eq(2).click(function(){
+                $('button').eq(1).off('click', callback1);
+            });
+
+            $('button').eq(3).click(function(){
+                $('button').eq(1).on('click', callback1);
+            });
+
+            var callback2 = function(){
+                console.log('한번만 수행');
+                // one 메서드로 대체 가능
+                // $(this).off('click', callback2);
+            };
+
+            // $('button').eq(4).on('click', callback2);
+            $('button').eq(4).one('click', callback2);
+
+            // jQuery에서는 캡쳐링 지원 X
+            // 이벤트 binding
+            $('div')
+                .first().width(300).height(300).css('background-color', 'red')
+                .children().first().width(200).height(200).css('background-color', 'blue')
+                .children().first().width(100).height(100).css('background-color', 'green')
+            
+            // div - 바인딩 할 곳, text - 데이터
+            $('div').on('click', 'div', 'text', function(e){
+                console.log(e.type, e.data);
+            });
+
+            // jQuery 1.7~
+            $(document).on('click', 'button:eq(0)', function(e){
+                console.log('이벤트 binding', e.target);
+            });
+
+            // 이벤트를 붙여서 버튼 만들기
+            $('<button/>').text('신규').insertAfter('h1').click(function(){
+                console.log('신규버튼 이벤트');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>on event binding</h1>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button>off</button>
+    <button>on</button>
+    <button>btn5</button>
+
+    <div>
+        box1
+        <div>
+            box2
+            <div>
+                box3
+            </div>
+        </div>
+    </div>
+</body>
+</html>

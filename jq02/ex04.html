@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            
+            // callback function이 똑같을 때
+            // n개의 이벤트를 한 번에 붙일 수 있음 (click, dbclick)
+            $('a').on('click dbclick', function(e){
+                console.log(e.type);
+                return false;
+            });
+            
+            // a 또는 button 눌렀을 때
+            $('a').add('button').click(function(e){
+                // 기본기능 취소
+                //e.preventDefault();
+
+                console.log('클릭', this, e.target);
+                //if(e.target.innerHTML == 'btn1')
+                    $('#target').append('클릭<br>');
+
+                // 기본기능 취소
+                // -> jQuery 기능 (dom3 쓰면서도 return false 가능)
+                return false;
+            })
+
+            .dblclick(function(){
+                $('#target').append('dbclick<br>');
+            })
+
+            .mousedown(function(){
+                $('#target').append('down<br>');
+            })
+
+            .mouseup(function(){
+                $('#target').append('up<br>');
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>mouse event</h1>
+    <a href="#">link</a>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button>btn3</button>
+    <button>btn4</button>
+    <div id="target"></div>
+</body>
+</html>

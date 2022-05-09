@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #target{
+            overflow: hidden;
+            width: 600px;
+            height: 400px;
+        }
+
+        #target>ul{
+            list-style: none;
+            width: 3600px;
+            padding: 0px;
+            margin-left: -600px;
+        }
+
+        #target>ul>li{
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script>
+
+        var li;
+
+        function nextImg(){
+            if(li.width()-100 >= 0){
+                li.width(li.width()-100);
+                setTimeout(nextImg, 100);
+            }else{
+                li.width(600);
+                li.next().appendTo('#target>ul');
+                setTimeout(nextImg, 200);
+            }
+        }
+
+        $(function(){
+            li = $('<li></li>').prependTo('#target>ul').width(600).height(400);
+            setTimeout(nextImg, 100);
+        });
+    </script>
+</head>
+<body>
+    <div id="target">
+        <ul>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img01" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img02" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img03" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img04" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img05" alt=""></li>
+            <li><img src="https://dummyimage.com/600x400/000/fff&text=img06" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

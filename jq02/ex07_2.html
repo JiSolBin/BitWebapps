@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('input').first()
+                // .focus(function(e){
+                //     e.target.value = '';
+                // })
+                // .blur(function(e){
+                //     if(e.target.value == '')
+                //         e.target.value = '초기값';
+                // })
+                
+                // 위와 동일한 퍼포먼스
+                .focusin(function(e){
+                    // e.target.value = '';
+                    $(e.target).select();
+                })
+                .focusout(function(e){
+                    if(e.target.value == '')
+                        e.target.value = '초기값';
+                })
+                .change(function(e){
+                    alert(e.target.value);
+                })
+                // 드래그 하면 select 됨
+                .select(function(e){
+                    console.log(e.type);
+                })
+            ;
+
+            $(':checkbox').change(function(e){
+                console.log(e.target);
+            });
+
+            $('select').change(function(e){
+                console.log(e.target);
+            });
+
+            $('form').submit(function(e){
+                e.preventDefault();
+
+                // ux, 사용자 친화적 -> 사용자 입장에서 편리하게
+                // submit 시 입력이 안된 textbox에 자동으로 focus 가는 등의 기능을 추가하면 좋음
+                // 이건 예시로 아무렇게나 한 것 !!!
+                $('input').first().focusin();
+
+                console.log(e.type);
+
+                // id를 입력하지 않았으면 submit X
+                // if($('input:eq(0)').val()=='') return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="">
+        <div>
+            <label for="id">id</label>
+            <input type="text" id="id" name="id" value="초기값">
+        </div>
+        <div>
+            <label for="pw">pw</label>
+            <input type="text" id="pw" name="pw">
+        </div>
+        <div>
+            <input type="checkbox" id="chk1" name="chk1">
+            <label for="chk1">item1</label>
+            <input type="checkbox" id="chk2" name="chk2">
+            <label for="">item2</label>
+            <input type="checkbox" id="chk3" name="chk3">
+            <label for="">item3</label>
+        </div>
+    
+        <div>
+            <input type="radio" name="ra" id="ra1">
+            <label for="">item1</label>
+            <input type="radio" name="ra" id="ra2">
+            <label for="">item2</label>
+            <input type="radio" name="ra" id="ra3">
+            <label for="">item3</label>
+        </div>
+    
+        <div>
+            <select name="sel">
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+
+        <div>
+            <textarea></textarea>
+        </div>
+
+        <div>
+            <button>전송</button>
+        </div>
+    </form>
+</body>
+</html>

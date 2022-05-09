@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            background-color: lightskyblue;
+        }
+    </style>
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(function(){
+            $('button').first()
+                .click(function(){
+                    // $('div').hide('fast', function(){
+                    //     console.log('함수 사용 가능');
+                    // });
+                    
+                    $('div').slideUp(300);
+                    // $('div').fadeOut(300);
+                })
+                .next().click(function(){
+                    // $('div').show(500);
+
+                    // $('div').show({
+                    //     duration : 300,
+                    //     easing : 'linear',
+
+                    //     // start, done, step, complete 등
+                    //     step : function(){
+                    //         console.log('show 끝!');
+                    //     },
+
+                    //     // a:이벤트 정보, b:진행률(0~1), c: 남은 시간
+                    //     progress : function(a, b, c){
+                    //         console.log(a, b, c);
+                    //     }
+                    // })
+
+                    $('div').slideDown(300, 'easeOutBounce');
+                    // $('div').fadeIn(300);
+                })
+                .next().click(function(){
+                    // $('div').toggle('slow');
+                    // $('div').slideToggle(300);
+                    $('div').fadeToggle(300);
+                })
+
+                // fadeTo : 직접 투명도 조절
+                .next().click(function(){
+                    $('div').fadeTo(300, 0.2);
+                })
+                .next().click(function(){
+                    $('div').fadeTo(300, 1);
+                })
+            ;
+        });
+    </script>
+</head>
+<body>
+    <h1>animate</h1>
+    <button>hide</button>
+    <button>show</button>
+    <button>toggle</button>
+    <button>etc1</button>
+    <button>etc2</button>
+
+    <div>어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구
+        어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구
+        어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구</div>
+
+    <p>애니메이션으로 숨기면 자리를 차지하지 않음 (display:none)</p>
+    <p>slide 사용하면 자연스럽게 none ~~</p>
+</body>
+</html>
